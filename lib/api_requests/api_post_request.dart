@@ -1,9 +1,10 @@
 import 'dart:convert';
 
 import 'package:http/http.dart'as http;
+import 'package:practice_graphql/constants/api_paths.dart';
 
 Future<void> makePostRequest(body) async {
-  final url = Uri.parse('https://api-as-eu10.erply.com/api/v1/form/registration');
+  final url = Uri.parse(ApiPaths.baseUrl+ApiPaths.registerDeviceApi);
   final headers = {
     "accept": "application/json",
     "clientCode": "372",

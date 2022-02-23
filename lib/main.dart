@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:practice_graphql/view/devices_screen/device_data_screen.dart';
 import 'package:practice_graphql/view/login/login_screen.dart';
-import 'package:practice_graphql/view/registration.dart';
-import 'package:practice_graphql/view/show_data.dart';
 
 import 'constants/color_assets.dart';
 

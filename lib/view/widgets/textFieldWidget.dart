@@ -34,7 +34,7 @@ Widget defaultTextFieldNumber(TextEditingController callback, String title) {
     inputFormatters: [
       FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z0-9]+|\s"))
     ],
-    style: const TextStyle(color: Colors.grey),    controller: callback,
+    style: const TextStyle(color: Colors.white),    controller: callback,
     decoration: InputDecoration(
       contentPadding:
       const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
@@ -44,8 +44,11 @@ Widget defaultTextFieldNumber(TextEditingController callback, String title) {
       enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: Colors.white),
       ),
+      errorBorder:  OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red.shade700),
+      ),
       filled: true,
-      labelStyle: const TextStyle(color: Colors.grey),
+      labelStyle: const TextStyle(color: Colors.white),
       labelText: title,
       counterText: '',
       fillColor: Colors.transparent,
@@ -70,7 +73,7 @@ Widget defaultTextFieldName(TextEditingController callback, String title) {
     inputFormatters: [
       FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z0-9]+|\s"))
     ],
-    style: const TextStyle(color: Colors.grey),    controller: callback,
+    style: const TextStyle(color: Colors.white),    controller: callback,
     decoration: InputDecoration(
       contentPadding:
       const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
@@ -80,8 +83,11 @@ Widget defaultTextFieldName(TextEditingController callback, String title) {
       enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: Colors.white),
       ),
+      errorBorder:  OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red.shade700),
+      ),
       filled: true,
-      labelStyle: const TextStyle(color: Colors.grey),
+      labelStyle: const TextStyle(color: Colors.white),
       labelText: title,
       counterText: '',
       fillColor: Colors.transparent,
@@ -104,7 +110,7 @@ Widget defaultTextFieldName(TextEditingController callback, String title) {
 Widget defaultTextFieldPass(TextEditingController callback, String title) {
   return TextFormField(
     obscureText: true,
-    style: const TextStyle(color: Colors.grey),    controller: callback,
+    style: const TextStyle(color: Colors.white),    controller: callback,
     decoration: InputDecoration(
       contentPadding:
       const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
@@ -114,8 +120,11 @@ Widget defaultTextFieldPass(TextEditingController callback, String title) {
       enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: Colors.white),
       ),
+      errorBorder:  OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red.shade700),
+      ),
       filled: true,
-      labelStyle: const TextStyle(color: Colors.grey),
+      labelStyle: const TextStyle(color: Colors.white),
       labelText: title,
       counterText: '',
       fillColor: Colors.transparent,

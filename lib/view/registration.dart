@@ -2,13 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practice_graphql/api_requests/api_client.dart';
 import 'package:practice_graphql/controller/registration_controller.dart';
-import 'package:practice_graphql/model/RegisterModel.dart';
-import 'package:practice_graphql/view/widgets/textFieldWIdget.dart';
+import 'package:practice_graphql/view/widgets/textFieldWidget.dart';
 
-import '../api_requests/api_post_request.dart';
-import '../model/DataModel.dart';
 
 class RegisterNewDevice extends StatefulWidget {
   const RegisterNewDevice({Key? key}) : super(key: key);

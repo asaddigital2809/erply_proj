@@ -5,6 +5,7 @@ Widget defaultContainer(Color color,Widget widget,double height,double width){
     height: height,
     width: width,
     decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(5),
       color: color
     ),
     child: widget,

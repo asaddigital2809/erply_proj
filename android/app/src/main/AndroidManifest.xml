@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.asad.graph.practice.practice_graphql">
    <application
-        android:label="practice_graphql"
+        android:label="ERPLY"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
