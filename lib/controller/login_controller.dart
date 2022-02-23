@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:practice_graphql/constants/api_paths.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../methods/shared_pref.dart';
 
@@ -15,6 +16,12 @@ class LoginController extends GetxController{
   TextEditingController usernameController = TextEditingController();
   TextEditingController passController = TextEditingController();
   bool isLogInSuccess = false;
+  String sessionKey ='';
+  getSession() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    var key = preferences.getString('key');
+    sessionKey = key!;
+  }
 
 
   Future<void> makeLoginPostRequest(String clientCode,String pass, String user) async {
@@ -32,8 +39,8 @@ class LoginController extends GetxController{
     if (response.statusCode == 200) {
       Map mapRes = json.decode(response.body);
       saveSession(mapRes["sessionKey"]);
+      await getSession();
       isLogInSuccess = true;
-
       update;
     }else if(response.statusCode == 401){
       isLogInSuccess = false;
@@ -42,4 +49,5 @@ class LoginController extends GetxController{
       print(response.reasonPhrase);
     }
   }
+
 }

@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:practice_graphql/model/MyDataModel.dart';
 import 'package:practice_graphql/view/widgets/custom_text.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../api_requests/data_api_client.dart';
 import '../../constants/color_assets.dart';
 
 
 class DataScreen extends StatefulWidget {
-  const DataScreen({Key? key}) : super(key: key);
+  String sKey = '';
+   DataScreen({Key? key,required this.sKey}) : super(key: key);
 
   @override
   _DataScreenState createState() => _DataScreenState();
 }
 
 class _DataScreenState extends State<DataScreen> {
+
   @override
   void initState() {
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +53,7 @@ class _DataScreenState extends State<DataScreen> {
                 ),
                 const SizedBox(height: 10,),
                 FutureBuilder(
-                      future: getRequest(),
+                      future: DataCall().getRequest(widget.sKey),
                       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                         if(snapshot.hasData){
                           List<MyDataModel> myDataModelList = snapshot.data;

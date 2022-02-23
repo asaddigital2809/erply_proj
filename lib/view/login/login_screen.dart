@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   _isLoading = false;
                                 });
                                 defaultSnackBar('Login Successful', context);
-                                // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const DataScreen()));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DataScreen(sKey: loginController.sessionKey)));
                               }else{
                                 setState(() {
                                   _isLoading = false;
