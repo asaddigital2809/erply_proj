@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
     double height = size.height;
 
     return Scaffold(
-      backgroundColor: AppColors.backGroundColor,
+      backgroundColor: AppColors.primaryColorDark,
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Login'),
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: defaultContainer(Colors.grey,Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children:  [
-                        _isLoading ==  true ? SizedBox(height: 15,width: 15,child: CircularProgressIndicator(color: AppColors.backGroundColor,strokeWidth: 2)) : const Text(''),
+                        _isLoading ==  true ? SizedBox(height: 15,width: 15,child: CircularProgressIndicator(color: AppColors.primaryColorDark,strokeWidth: 2)) : const Text(''),
                         const SizedBox(width: 5,),
                         const Center(child: Text('Login',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 15))),
                       ]), 50, width)),

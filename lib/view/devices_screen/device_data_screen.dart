@@ -25,7 +25,7 @@ class _DataScreenState extends State<DataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.backGroundColor,
+        backgroundColor: AppColors.primaryColorDark,
         appBar: AppBar(
           elevation: 10,
           centerTitle: true,
@@ -43,10 +43,10 @@ class _DataScreenState extends State<DataScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                          headingText('Id', 15, AppColors.backGroundColor, FontWeight.bold),
-                        headingText('Brand', 15, AppColors.backGroundColor, FontWeight.bold),
-                        headingText('Model', 15, AppColors.backGroundColor, FontWeight.bold),
-                        headingText('Year', 15, AppColors.backGroundColor, FontWeight.bold),
+                          headingText('Id', 15, AppColors.primaryColorDark, FontWeight.bold),
+                        headingText('Brand', 15, AppColors.primaryColorDark, FontWeight.bold),
+                        headingText('Model', 15, AppColors.primaryColorDark, FontWeight.bold),
+                        headingText('Year', 15, AppColors.primaryColorDark, FontWeight.bold),
                       ],
                     ),
                   ),

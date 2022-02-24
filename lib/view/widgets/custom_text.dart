@@ -22,6 +22,17 @@ Widget headingText(text,double size,Color color,FontWeight weight){
     ),
   );
 }
+Widget headingTextUnderLine(text,double size,Color color,FontWeight weight){
+  return Text(
+    text ?? "",
+    style: TextStyle(
+        fontSize: size,
+        color: color,
+        fontWeight: weight,
+      decoration: TextDecoration.underline
+    ),
+  );
+}
 Widget headingTextThree(text,double size,Color color,FontWeight weight){
   return Text(
     text ?? "",
