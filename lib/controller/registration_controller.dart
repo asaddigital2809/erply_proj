@@ -24,7 +24,7 @@ class RegisterController extends GetxController {
   var body = {};
 
   addToBody(String brand, String email, String fName, String model, String name,
-      String phone, String reg, String serviceName, String year) {
+      String phone, String reg, String serviceName, String year,String key) {
 
     body["brand"] = brand;
     body["email"] = email;
@@ -35,6 +35,6 @@ class RegisterController extends GetxController {
     body["registration"] = reg;
     body["serviceName"] = serviceName;
     body["year"] = year;
-    makePostRequest(body);
+    makePostRequest(body,key);
   }
 }

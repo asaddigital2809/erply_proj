@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:practice_graphql/constants/color_assets.dart';
 import 'package:practice_graphql/view/devices_screen/device_data_screen.dart';
+import 'package:practice_graphql/view/vehicle_screens/vehical_details.dart';
 import 'package:practice_graphql/view/widgets/custom_container.dart';
 import 'package:practice_graphql/view/widgets/snackbar_widget.dart';
 import 'package:practice_graphql/view/widgets/textFieldWidget.dart';
@@ -94,8 +95,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 setState(() {
                                   _isLoading = false;
                                 });
+
                                 defaultSnackBar('Login Successful', context);
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> DataScreen(sKey: loginController.sessionKey)));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>  VehicleDetails(sKey: loginController.sessionKey,)));
                               }else{
                                 setState(() {
                                   _isLoading = false;

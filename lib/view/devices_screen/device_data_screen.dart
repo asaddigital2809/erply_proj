@@ -43,7 +43,7 @@ class _DataScreenState extends State<DataScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                          headingText('Id', 15, AppColors.primaryColorDark, FontWeight.bold),
+                        headingText('Id', 15, AppColors.primaryColorDark, FontWeight.bold),
                         headingText('Brand', 15, AppColors.primaryColorDark, FontWeight.bold),
                         headingText('Model', 15, AppColors.primaryColorDark, FontWeight.bold),
                         headingText('Year', 15, AppColors.primaryColorDark, FontWeight.bold),
@@ -70,9 +70,9 @@ class _DataScreenState extends State<DataScreen> {
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
                                           headingText(myDataModel.id.toString(), 12, Colors.white, FontWeight.bold),
-                                          headingText(myDataModel.brand, 12, Colors.white, FontWeight.bold),
-                                          headingText(myDataModel.model, 12, Colors.white, FontWeight.bold),
-                                          headingText(myDataModel.year, 12, Colors.white, FontWeight.bold), // (myDataModel.brand,),
+                                          headingText(myDataModel.brand.toString(), 12, Colors.white, FontWeight.bold),
+                                          headingText(myDataModel.model.toString(), 12, Colors.white, FontWeight.bold),
+                                          headingText(myDataModel.year.toString(), 12, Colors.white, FontWeight.bold), // (myDataModel.brand,),
                                         ],
                                       ),
                                     ),

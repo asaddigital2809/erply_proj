@@ -34,11 +34,11 @@ class MyDataModel {
     required this.relevance,
   });
 
-  int id;
+  dynamic id;
   dynamic productId;
   dynamic productName;
   dynamic invoiceId;
-  int customerId;
+  dynamic customerId;
   dynamic dateSoldAt;
   dynamic warrantyStartAt;
   dynamic warrantyEndAt;
@@ -51,9 +51,9 @@ class MyDataModel {
   dynamic notes;
   // Data data;
   DateTime createdAt;
-  int createdById;
+  dynamic createdById;
   DateTime updatedAt;
-  int updatedById;
+  dynamic updatedById;
   dynamic relevance;
 
   factory MyDataModel.fromJson(Map<String, dynamic> json) => MyDataModel(

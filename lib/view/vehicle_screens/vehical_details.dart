@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:practice_graphql/constants/color_assets.dart';
+import 'package:practice_graphql/view/registration.dart';
 import 'package:practice_graphql/view/vehicle_screens/add_vehicle.dart';
 import 'package:practice_graphql/view/widgets/custom_text.dart';
 
+import '../../api_requests/data_api_client.dart';
+import '../../model/MyDataModel.dart';
+
 class VehicleDetails extends StatefulWidget {
-  const VehicleDetails({Key? key}) : super(key: key);
+  String sKey = '';
+   VehicleDetails({Key? key,required this.sKey}) : super(key: key);
 
   @override
   _VehicleDetailsState createState() => _VehicleDetailsState();
@@ -65,7 +70,7 @@ class _VehicleDetailsState extends State<VehicleDetails> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const AddNewVehicle()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> AddNewVehicle()));
                 },
                 child: Container(
                   height: 55,
@@ -81,35 +86,49 @@ class _VehicleDetailsState extends State<VehicleDetails> {
             ],
           ),
           const SizedBox(height: 10,),
-          Expanded(
-              child: ListView.builder(
-                  itemCount: 20,
-                  itemBuilder: (BuildContext ctx,int index){
-                return  Container(
-                    padding: const EdgeInsets.all(10),
-                    width: width,
-                    height: 80,
-                    decoration: BoxDecoration(
-                        color: AppColors.primaryColorLight,
-                        border: Border(bottom: BorderSide(color: Colors.white.withOpacity(0.5),width: 1))
-                        // borderRadius: BorderRadius.circular(5)
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        headingTextThree('Porsche', 18, Colors.white, FontWeight.bold),
-                        Row(
-                          children: [
-                            headingTextUnderLine('Cayene 123', 15, Colors.white , FontWeight.normal),
-                            const Spacer(),
-                            headingText('SAM123', 15, Colors.white, FontWeight.normal)
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-              }),
+          FutureBuilder(
+            future: DataCall().getRequest(widget.sKey),
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              if(snapshot.hasData){
+                List<MyDataModel> myDataModelList = snapshot.data;
+                return Expanded(
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: myDataModelList.length,
+                      itemBuilder: (ctx,index){
+                        MyDataModel myDataModel = myDataModelList[index];
+                        return  Container(
+                          padding: const EdgeInsets.all(10),
+                          width: width,
+                          height: 80,
+                          decoration: BoxDecoration(
+                              color: AppColors.primaryColorLight,
+                              border: Border(bottom: BorderSide(color: Colors.white.withOpacity(0.5),width: 1))
+                            // borderRadius: BorderRadius.circular(5)
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              headingTextThree(myDataModel.brand, 18, Colors.white, FontWeight.bold),
+                              Row(
+                                children: [
+                                  headingTextUnderLine(myDataModel.model, 15, Colors.white , FontWeight.normal),
+                                  const Spacer(),
+                                  headingText(myDataModel.productName, 15, Colors.white, FontWeight.normal)
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
+                );
+              }
+              else{
+                return  CircularProgressIndicator(color: AppColors.blueColor);
+              }
+            },
+
           )
         ]),
       ),
